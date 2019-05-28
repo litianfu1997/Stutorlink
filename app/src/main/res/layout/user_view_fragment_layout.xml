@@ -1,11 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+    <!--第一个linearlayout是用户信息与用户信息编辑-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:text="个人中心"/>
+        android:orientation="vertical"
+        android:layout_margin="5dp">
+        <!--对个人信息添加一个点击事件，跳转到编辑个人信息的界面-->
+        <LinearLayout
+            android:id="@+id/user_detail_linearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            >
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="@color/colorPrimary"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="#fff">
+                <TextView
+                    android:id="@+id/nicheng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="昵称"
+                    android:textSize="36sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nicheng"
+                    android:text="这是个神秘人"
+                    android:textSize="16sp"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--第二个linearlayout是账号安全的设置-->
+    <LinearLayout
+        android:id="@+id/IDSafe_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="2"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="10dp"
+
+
+        >
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/zhanghao"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="账号安全"
+            android:textSize="24sp"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/you1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/userProtocol_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="2"
+        android:layout_marginTop="30dp"
+        android:layout_margin="5dp"
+
+        >
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/my"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="用户协议"
+            android:textSize="24sp"
+            />
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/you1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/privacyProtocol_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="2"
+        android:layout_marginTop="20dp"
+        android:layout_margin="5dp"
+        >
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/yinsi"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="隐私协议"
+            android:textSize="24sp"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/you1"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/communityProtocol_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:weightSum="2"
+        android:layout_marginTop="20dp"
+        android:layout_margin="5dp"
+        >
+
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/shequ"/>
+
+        <TextView
+            android:gravity="center_vertical"
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="社区协议"
+            android:textSize="24sp"/>
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:src="@drawable/you1"/>
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF4040"
+        android:text="退出登录"
+        android:textSize="24sp"/>
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.nnxy.fragment.MainViewFragment;
 import com.nnxy.fragment.PutOutViewFragment;
 import com.nnxy.fragment.UserViewFragment;
+import com.nnxy.putout.MainFragment;
 
 public class DockMenuActivity extends AppCompatActivity {
 
@@ -25,7 +26,9 @@ public class DockMenuActivity extends AppCompatActivity {
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new MainViewFragment()).commitAllowingStateLoss();
                     return true;
                 case R.id.navigation_dashboard:
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new PutOutViewFragment()).commitAllowingStateLoss();
+                    getSupportFragmentManager().beginTransaction()
+                            .replace(R.id.frame_container, MainFragment.newInstance())
+                            .commitAllowingStateLoss();
                     return true;
                 case R.id.navigation_notifications:
                     getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,new UserViewFragment()).commitAllowingStateLoss();

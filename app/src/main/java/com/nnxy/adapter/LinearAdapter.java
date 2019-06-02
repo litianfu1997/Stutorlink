@@ -1,6 +1,7 @@
 package com.nnxy.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,12 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nnxy.stutorlink.R;
+import com.nnxy.stutorlink.RegisterActivity;
 
 public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearViewHolder> {
     //设置构造方法，获取Context
     private Context mContext;
-    public LinearAdapter(Context context){
+    private onItemClickListener mListener;
+    public LinearAdapter(Context context,onItemClickListener listener){
         this.mContext = context;
+        this.mListener = listener;
     }
 
     @NonNull
@@ -28,7 +32,7 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LinearAdapter.LinearViewHolder viewHolder, final int i) {//可以处理点击事件、赋值等等
+    public void onBindViewHolder(@NonNull final LinearAdapter.LinearViewHolder viewHolder, final int i) {//可以处理点击事件、赋值等等
         //对按钮设置点击事件
         viewHolder.btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,10 +55,12 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
 
             }
         });
+
         //对每个item（条目）设置点击事件
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mListener.onClick(i);
                 Toast.makeText(mContext,"itemView.."+i,Toast.LENGTH_LONG).show();
             }
         });
@@ -67,8 +73,12 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
      */
     @Override
     public int getItemCount() {
-        return 30;
+        return 10;
     }
+
+
+
+
     class LinearViewHolder extends RecyclerView.ViewHolder{
         //对item的控件进行声明
         private ImageView headImg,contentImg;
@@ -86,5 +96,8 @@ public class LinearAdapter extends RecyclerView.Adapter<LinearAdapter.LinearView
             btn2 = itemView.findViewById(R.id.button2);
             btn3 = itemView.findViewById(R.id.button3);
         }
+    }
+    public interface onItemClickListener{
+        void onClick(int pos);
     }
 }

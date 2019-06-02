@@ -34,8 +34,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -131,6 +133,11 @@ public class MainFragment extends Fragment implements MediaAdapter.OnAddMediaLis
         super.onViewCreated(view, savedInstanceState);
         editTextContent = view.findViewById(R.id.et_content);
         putOutBtn = view.findViewById(R.id.btn_putout);
+        final Date date = new Date();
+        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        final String putOutTime = simpleDateFormat.format(date);
+        //发布按钮
+        //将发布信息进行封装，上传到后台服务器
         putOutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -140,8 +147,8 @@ public class MainFragment extends Fragment implements MediaAdapter.OnAddMediaLis
                 quesCard.setUserId(1);
                 quesCard.setCommentNum(100);
                 quesCard.setLikeNum(66);
-                quesCard.setTitle("这是个测试");
-                quesCard.setPutoutTime("2019-5-30");
+                quesCard.setTitle(editTextContent.getText().toString());
+                quesCard.setPutoutTime(putOutTime);
                 if (result != null){
                     for(MediaEntity tt : result){
 //                System.out.println(tt.getLocalPath());

@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.nnxy.adapter.LinearAdapter;
-import com.nnxy.stutorlink.LinearRecyclerViewActivity;
 import com.nnxy.stutorlink.R;
 
 public class MainViewFragment extends Fragment {
@@ -32,7 +31,18 @@ public class MainViewFragment extends Fragment {
         mRvmain = view.findViewById(R.id.rv_mian);//找到RecycleView布局
         mRvmain.setLayoutManager(new LinearLayoutManager(getActivity()));//设置LayoutManager
         mRvmain.addItemDecoration(new MyDecoration());//设置分割线
-        mRvmain.setAdapter(new LinearAdapter(getActivity()));//设置适配器
+        mRvmain.setAdapter(new LinearAdapter(getActivity(), new LinearAdapter.onItemClickListener() {
+            @Override
+            public void onClick(int pos) {
+                DetailContentViewFragment detailContentViewFragment =new DetailContentViewFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("pos", String.valueOf(pos));
+                detailContentViewFragment.setArguments(bundle);
+                getFragmentManager().beginTransaction().replace(R.id.frame_container,detailContentViewFragment).addToBackStack(null).commitAllowingStateLoss();
+            }
+        }));//设置适配器,以及点击该Item跳转的事件
+
+
     }
     /**
      * 绘制下划线

@@ -3,7 +3,7 @@
     package="com.nnxy.stutorlink">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
-        android:name="com.nnxy.putout.App"
+        android:name="com.nnxy.application.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -13,7 +13,6 @@
         <activity
             android:name=".DockMenuActivity"
             android:label="@string/title_activity_dock_menu"></activity>
-        <activity android:name=".LinearRecyclerViewActivity" />
         <activity android:name=".ForgetActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity">

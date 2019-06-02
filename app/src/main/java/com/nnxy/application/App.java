@@ -1,4 +1,4 @@
-package com.nnxy.putout;
+package com.nnxy.application;
 
 import android.app.Application;
 import android.content.Context;

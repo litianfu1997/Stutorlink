@@ -1,10 +1,7 @@
 package com.nnxy.putout;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,7 +25,6 @@ import com.nnxy.entity.QuesCard;
 import com.nnxy.stutorlink.R;
 
 
-import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,7 +43,7 @@ import java.util.List;
  * @author guoxiaoxing
  * @since 2017/12/21 下午4:35
  */
-public class MainFragment extends Fragment implements MediaAdapter.OnAddMediaListener
+public class PutoutFragment extends Fragment implements MediaAdapter.OnAddMediaListener
         , View.OnClickListener {
 
     private int REQUEST_CODE = 0x000111;
@@ -57,8 +53,8 @@ public class MainFragment extends Fragment implements MediaAdapter.OnAddMediaLis
     private EditText editTextContent;
     private Button putOutBtn;
 
-    public static MainFragment newInstance(){
-        return new MainFragment();
+    public static PutoutFragment newInstance(){
+        return new PutoutFragment();
     }
 
     @Override
@@ -206,7 +202,7 @@ public class MainFragment extends Fragment implements MediaAdapter.OnAddMediaLis
      * @param imgStr
      * @return
      */
-    public static boolean generateImage(String imgStr,String imgFile)throws Exception {
+    public static boolean generateImage(String imgStr,String imgFile)throws Exception {//imgFile是生成图片的路径String imgFile = "d:\\111.jpg";
         // 对字节数组字符串进行Base64解码并生成图片
         if (imgStr == null) // 图像数据为空
             return false;

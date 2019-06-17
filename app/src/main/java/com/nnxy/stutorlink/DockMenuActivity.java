@@ -5,12 +5,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.annotation.NonNull;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import com.nnxy.fragment.MainViewFragment;
-import com.nnxy.fragment.PutOutViewFragment;
 import com.nnxy.fragment.UserViewFragment;
-import com.nnxy.putout.MainFragment;
+import com.nnxy.putout.PutoutFragment;
 
 public class DockMenuActivity extends AppCompatActivity {
 
@@ -27,7 +25,7 @@ public class DockMenuActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_dashboard:
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.frame_container, MainFragment.newInstance())
+                            .replace(R.id.frame_container, PutoutFragment.newInstance())
                             .commitAllowingStateLoss();
                     return true;
                 case R.id.navigation_notifications:

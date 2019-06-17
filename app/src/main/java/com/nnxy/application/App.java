@@ -8,6 +8,10 @@ import com.bumptech.glide.Glide;
 import com.guoxiaoxing.phoenix.core.listener.ImageLoader;
 import com.guoxiaoxing.phoenix.picker.Phoenix;
 
+import org.json.JSONObject;
+
+import java.util.List;
+
 /**
  * For more information, you can visit https://github.com/guoxiaoxing or contact me by
  * guoxiaoxingse@163.com.
@@ -16,6 +20,8 @@ import com.guoxiaoxing.phoenix.picker.Phoenix;
  * @since 2017/8/1 下午2:08
  */
 public class App extends Application {
+    private static JSONObject user1;
+
 
     @Override
     public void onCreate() {
@@ -36,5 +42,11 @@ public class App extends Application {
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
 
+    }
+    public static JSONObject getUser() {
+        return user1;
+    }
+    public static void setUser(JSONObject user) {
+        user1 = user;
     }
 }
